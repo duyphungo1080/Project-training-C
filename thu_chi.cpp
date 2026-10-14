@@ -40,7 +40,7 @@ void thuNhapThang(struct nganSach *NS){
     while (NS->thuNhapThang <= 0);
     nganSach(NS);
     printf("\nNGAN SACH THANG\n");
-    printf("Thu nhap ban dau: %.0f VND\n",
+    printf("Thu nhap ban dau: %.1f VND\n",
            NS->thuNhapThang);
 
     printf("Thiet yeu: %.1f\n",
@@ -52,8 +52,38 @@ void thuNhapThang(struct nganSach *NS){
     printf("Tiet kiem: %.1f\n",
            NS->nganSachTietKiem);        
 }
+void menu(struct nganSach *NS){
+    int luaChon;
+    do{
+        printf("1. Thu tien\n");
+        printf("2. Chi tien\n");
+        printf("3. Xem ngan sach\n");
+        printf("0. Thoat\n");
+        printf("Nhap lua chon: ");
+        if (scanf("%d", &luaChon) != 1) {
+            printf("Error\n");
+        }
+         switch (luaChon) {
+            case 1:
+                printf("Ban da chon thu tien.\n");
+                break;
+            case 2:
+                printf("Ban da chon chi tien.\n");
+                break;
+            case 3:
+                printf("Ban da chon xem ngan sach");
+                break;
+            case 0:
+                printf("Ket thuc chuong trinh!\n");
+                break;
+            default:
+                printf("Lua chon khong hop le!\n");
+        }
+    }
+    while (luaChon != 0);
+}
 int main(){
     struct nganSach NS = {0};
-    thuNhapThang(&NS);
+    menu(&NS);
     return 0;   
 }
