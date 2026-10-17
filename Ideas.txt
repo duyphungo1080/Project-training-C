@@ -1,0 +1,34 @@
+﻿　　　　Struct
+tên người gửi (char)[35]
+Mã đơn(char)[8]
+tên đơn hàng(char)[50] 
+Ngày gửi đơn(int DDMMYY)
+khối lượng(float .2f)
+tên người nhận(char)[35]
+Số điện thoại người nhận(char)[11]
+Địa chỉ:(char)[70]
+Dự kiến ngày nhận(int DDMMYY)
+Số tiền(float .1f)
+　　　　Điều kiện
+*Mã đơn(char)[8]: 
+- 3 ký tự  đầu phải có #MD
+- 4 ký tự còn lại là số 
+*Ngày gửi đơn(int DDMMYY), Dự kiến ngày nhận
+- 2 số đầu từ 0 ->31
+- 2 số tiếp theo từ 0 - 12
+- nếu 2 số đầu là 31 thì 2 số tiếp theo ko thể là các số 02 04 06 09 11
+-nếu 2 số đầu là 30 thì 2 số tiếp theo ko thể là số 02
+*Số điện thoại người nhận(char)[11]
+-ký tự đầu tiên luôn là số 0
+-các ký tự còn lại đều là số
+　　　　Tên biến 
+tên người gửi: nguoiGui
+Mã đơn:maDon
+tên đơn hàng: donHang
+Ngày gửi đơn: ngayGui
+khối lượng: khoiLuong
+tên người nhận: nguoiNhan
+Số điện thoại người nhận: SDT
+Địa chỉ: diaChi
+Dự kiến ngày nhận: ngayNhan
+Số tiền: soTien
