@@ -1,0 +1,33 @@
+# ==========================================
+# 1. Các file thực thi & biên dịch (C/C++)
+# ==========================================
+*.exe
+*.out
+*.app
+*.o
+*.obj
+
+# ==========================================
+# 2. Các file tạm của Trình biên dịch & IDE
+# ==========================================
+# Dev-C++ / Code::Blocks
+*.win
+*.layout
+*.depend
+*.bak
+
+# Visual Studio Code / Visual Studio
+.vscode/
+.vs/
+*.suo
+*.user
+*.userosv
+*.sln.docstates
+
+# ==========================================
+# 3. File hệ thống & Nhật ký
+# ==========================================
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
