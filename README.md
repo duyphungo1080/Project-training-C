@@ -50,17 +50,17 @@ Máy tính của bạn cần sẵn sàng trình biên dịch C (như GCC) hoặc
 
 2. **Biên dịch mã nguồn C:**
    ```bash
-   gcc main.c -o main
+   gcc main.c -o quan_ly_kien_hang
    ```
 
 3. **Khởi chạy ứng dụng Console:**
    * Trên **Windows**:
      ```bash
-     main.exe
+     quan_ly_kien_hang.exe
      ```
    * Trên **Linux / macOS**:
      ```bash
-     ./main
+     ./quan_ly_kien_hang
      ```
 
 ---
@@ -68,3 +68,15 @@ Máy tính của bạn cần sẵn sàng trình biên dịch C (như GCC) hoặc
 ## 📝 Yêu Cầu Đồ Án / Bài Tập
 * Môn học: Lập trình C cơ bản & nâng cao
 * Yêu cầu thực tế: Ứng dụng `struct` để giải quyết bài toán quản lý kiện hàng thực tế trên giao diện Console.
+
+---
+
+##  Ảnh Demo
+
+* Màn hình `main`
+
+![Image](images/1.png)
+
+* Màn hình `Create`
+
+![Image](images/2.png)
