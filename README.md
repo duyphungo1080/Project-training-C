@@ -50,7 +50,7 @@ Máy tính của bạn cần sẵn sàng trình biên dịch C (như GCC) hoặc
 
 2. **Biên dịch mã nguồn C:**
    ```bash
-   gcc main.cpp -o quan_ly_kien_hang
+   gcc main.cpp -o main
    ```
 
 3. **Khởi chạy ứng dụng Console:**
