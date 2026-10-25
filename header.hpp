@@ -6,6 +6,7 @@ typedef struct {
     char maDon[8];
     char donHang[50];
     char ngayGui[7];
+    int loai;
     float khoiLuong;
     char nguoiNhan[35];
     char SDT[11];
@@ -23,5 +24,10 @@ int kiemTraNgayGui(char ngayGui[]);
 int kiemTraNgayNhan(char ngayNhan[]);
 int kiemTraSDT(char SDT[]);
 int kiemTraTinhTrangDon(int trangThai);
+
+void xoaBoNhoDem();
+int timViTriTheoMa(vanChuyen ds[], int soLuong, char maDon[]);
+void themDonHang(vanChuyen ds[], int *soLuong);
+void hienThiDanhSach(vanChuyen ds[], int soLuong);
 
 #endif

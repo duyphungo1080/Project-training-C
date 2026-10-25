@@ -50,7 +50,7 @@ Máy tính của bạn cần sẵn sàng trình biên dịch C (như GCC) hoặc
 
 2. **Biên dịch mã nguồn C:**
    ```bash
-   g++ main.cpp check.cpp -o main
+   1
    ```
 
 3. **Khởi chạy ứng dụng Console:**
