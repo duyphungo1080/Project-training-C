@@ -9,7 +9,7 @@ void hienThiMenu() {
     printf("| 1. Them moi don hang (Create)                           |\n");
     printf("| 2. Hien thi danh sach don hang (Read)                   |\n");
     printf("| 3. Tim kiem don hang (Search)                           |\n");
-    printf("| 4. Chinh sua hoac xoa don hang (Edit)                   |\n");
+    printf("| 4. Chinh sua don hang (Edit)                            |\n");
     printf("| 0. Thoat chuong trinh                                   |\n");
     printf("===========================================================\n");
     printf("Nhap lua chon cua ban: ");
@@ -43,7 +43,7 @@ int main() {
                 timKiemDonHang(danhSachDonHang, soLuongDonHang);
                 break;
             case 4:
-                suaHoacXoaDonHang(danhSachDonHang, &soLuongDonHang);
+                suaDonHang(danhSachDonHang, soLuongDonHang);
                 break;
             case 0:
                 printf("\nKet thuc chuong trinh\n");

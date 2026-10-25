@@ -30,6 +30,8 @@ int timViTriTheoMa(vanChuyen ds[], int soLuong, char maDon[]);
 void themDonHang(vanChuyen ds[], int *soLuong);
 void hienThiDanhSach(vanChuyen ds[], int soLuong);
 void timKiemDonHang(vanChuyen ds[], int soLuong);
-void suaHoacXoaDonHang(vanChuyen ds[], int *soLuong);
-
+void suaDonHang(vanChuyen ds[], int soLuong);
+void xoaDonHang(vanChuyen ds[], int *soLuong);
+void traCuuPhiVanChuyen(vanChuyen ds[], int soLuong);
+void xemTinhTrangDonHang(vanChuyen ds[], int soLuong);
 #endif

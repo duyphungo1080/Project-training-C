@@ -18,6 +18,8 @@ int timViTriTheoMa(vanChuyen ds[], int soLuong, char maDon[]) {
     return -1;
 }
 
+//Thêm đơn hàng
+
 void themDonHang(vanChuyen ds[], int *soLuong) {
     if (*soLuong >= MAX_DON_HANG) {
         printf("\nDanh sach don hang da dat gioi han!\n");
@@ -80,7 +82,6 @@ void themDonHang(vanChuyen ds[], int *soLuong) {
     if (loaiHang == 1) {
         vcMoi.khoiLuong = 0;
         vcMoi.soTien = 25000;
-        printf("-> Phi van chuyen: 25000 VND\n");
     } else {
         do {
             printf("Nhap khoi luong (kg): ");
@@ -98,7 +99,6 @@ void themDonHang(vanChuyen ds[], int *soLuong) {
         } else {
             vcMoi.soTien = vcMoi.khoiLuong * 4000;
         }
-        printf("-> Phi van chuyen: %.0f VND\n", vcMoi.soTien);
     }
 
     do {
@@ -161,6 +161,8 @@ void themDonHang(vanChuyen ds[], int *soLuong) {
     printf("\n[Thanh cong] Da them don hang %s vao he thong! (Tong so don: %d)\n", vcMoi.maDon, *soLuong);
 }
 
+// Hiển thị dsách đơn hàng
+
 void hienThiDanhSach(vanChuyen ds[], int soLuong) {
     if (soLuong == 0) {
         printf("\nDanh sach don hang hien dang trong!\n");
@@ -217,6 +219,8 @@ void hienThiDanhSach(vanChuyen ds[], int soLuong) {
     }
     printf("========================================================================================================================================================\n");
 }
+
+// Tìm kiếm đơn hàng
 
 void timKiemDonHang(vanChuyen ds[], int soLuong) {
     if (soLuong == 0) {
@@ -294,177 +298,207 @@ void timKiemDonHang(vanChuyen ds[], int soLuong) {
     printf("========================================================================================================================================================\n");
 }
 
-void suaHoacXoaDonHang(vanChuyen ds[], int *soLuong) {
-    if (*soLuong == 0) {
+//Edit đơn hàng
+
+void suaDonHang(vanChuyen ds[], int soLuong) {
+    if (soLuong == 0) {
         printf("\nDanh sach don hang hien dang trong!\n");
         return;
     }
 
-    hienThiDanhSach(ds, *soLuong);
+    hienThiDanhSach(ds, soLuong);
 
     char maCanTim[8];
-    printf("\nNhap ma don can chinh sua hoac xoa: ");
+    printf("\nNhap ma don can chinh sua: ");
     scanf("%s", maCanTim);
     xoaBoNhoDem();
 
-    int vt = timViTriTheoMa(ds, *soLuong, maCanTim);
+    int vt = timViTriTheoMa(ds, soLuong, maCanTim);
     if (vt == -1) {
         printf("\nKhong tim thay don hang co ma %s!\n", maCanTim);
         return;
     }
 
-    int luaChonHD;
+    int chonMuc;
     do {
-        printf("\n================ CHINH SUA HOAC XOA DON HANG ================\n");
-        printf("1. Chinh sua don hang\n");
-        printf("2. Xoa don hang\n");
-        printf("0. Quay lai menu chinh\n");
+        printf("\n================ CHON MUC CAN CHINH SUA ================\n");
+        printf("1. Ten nguoi gui\n");
+        printf("2. Ma don\n");
+        printf("3. Ten don hang\n");
+        printf("4. Loai hang va khoi luong\n");
+        printf("5. Ngay gui\n");
+        printf("6. Ten nguoi nhan\n");
+        printf("7. SDT nguoi nhan\n");
+        printf("8. Ngay nhan du kien\n");
+        printf("9. Tinh trang don\n");
+        printf("0. Thoat chinh sua\n");
         printf("Nhap lua chon: ");
-        if (scanf("%d", &luaChonHD) != 1) {
+
+        if (scanf("%d", &chonMuc) != 1) {
             printf("\nCu phap khong hop le!\n");
             xoaBoNhoDem();
+            chonMuc = -1;
             continue;
         }
         xoaBoNhoDem();
 
-        if (luaChonHD == 1) {
-            printf("\n================ NHAP LAI THONG TIN DON HANG ================\n");
-            
-            do {
-                printf("Ten nguoi gui: ");
-                fgets(ds[vt].nguoiGui, sizeof(ds[vt].nguoiGui), stdin);
-                ds[vt].nguoiGui[strcspn(ds[vt].nguoiGui, "\n")] = 0;
-                if (kiemTraNguoiGui(ds[vt].nguoiGui) == 0) {
-                    printf("-> Cu phap khong hop le\n");
-                }
-            } while (kiemTraNguoiGui(ds[vt].nguoiGui) == 0);
-
-            do {
-                printf("Ten don hang: ");
-                fgets(ds[vt].donHang, sizeof(ds[vt].donHang), stdin);
-                ds[vt].donHang[strcspn(ds[vt].donHang, "\n")] = 0;
-                if (kiemTraDonHang(ds[vt].donHang) == 0) {
-                    printf("-> Cu phap khong hop le\n");
-                }
-            } while (kiemTraDonHang(ds[vt].donHang) == 0);
-
-            int loaiHang;
-            do {
-                printf("Chon loai hang hoa (1: Tai lieu | 2: Hang hoa binh thuong): ");
-                scanf("%d", &loaiHang);
-                xoaBoNhoDem();
-                if (loaiHang != 1 && loaiHang != 2) {
-                    printf("-> Lua chon khong hop le! Vui long chon 1 hoac 2.\n");
-                }
-            } while (loaiHang != 1 && loaiHang != 2);
-
-            ds[vt].loai = loaiHang;
-
-            if (loaiHang == 1) {
-                ds[vt].khoiLuong = 0;
-                ds[vt].soTien = 25000;
-                printf("-> Phi van chuyen: 25000 VND\n");
-            } else {
+        switch (chonMuc) {
+            case 1:
                 do {
-                    printf("Nhap khoi luong (kg): ");
-                    scanf("%f", &ds[vt].khoiLuong);
-                    xoaBoNhoDem();
-                    if (ds[vt].khoiLuong <= 0) {
-                        printf("Gia tri khong hop le!\n");
+                    printf("Nhap ten nguoi gui moi: ");
+                    fgets(ds[vt].nguoiGui, sizeof(ds[vt].nguoiGui), stdin);
+                    ds[vt].nguoiGui[strcspn(ds[vt].nguoiGui, "\n")] = 0;
+                    if (kiemTraNguoiGui(ds[vt].nguoiGui) == 0) {
+                        printf("-> Cu phap khong hop le\n");
                     }
-                } while (ds[vt].khoiLuong <= 0);
-
-                if (ds[vt].khoiLuong < 10) {
-                    ds[vt].soTien = ds[vt].khoiLuong * 3000;
-                } else {
-                    ds[vt].soTien = ds[vt].khoiLuong * 4000;
-                }
-                printf("-> Phi van chuyen: %.0f VND\n", ds[vt].soTien);
-            }
-
-            do {
-                printf("Nhap ngay gui (DDMMYY): ");
-                scanf("%s", ds[vt].ngayGui);
-                xoaBoNhoDem();
-                if (kiemTraNgayGui(ds[vt].ngayGui) == 0) {
-                    printf("-> Ngay gui khong hop le\n");
-                }
-            } while (kiemTraNgayGui(ds[vt].ngayGui) == 0);
-
-            do {
-                printf("Nhap ten nguoi nhan: ");
-                fgets(ds[vt].nguoiNhan, sizeof(ds[vt].nguoiNhan), stdin);
-                ds[vt].nguoiNhan[strcspn(ds[vt].nguoiNhan, "\n")] = 0;
-                if (kiemTraNguoiNhan(ds[vt].nguoiNhan) == 0) {
-                    printf("-> Ten nguoi nhan khong duoc de trong! Nhap lai.\n");
-                }
-            } while (kiemTraNguoiNhan(ds[vt].nguoiNhan) == 0);
-
-            do {
-                printf("Nhap SDT nguoi nhan: ");
-                scanf("%s", ds[vt].SDT);
-                xoaBoNhoDem();
-                if (kiemTraSDT(ds[vt].SDT) == 0) {
-                    printf("-> SDT khong hop le! Nhap lai.\n");
-                }
-            } while (kiemTraSDT(ds[vt].SDT) == 0);
-
-            do {
-                printf("Nhap ngay nhan du kien (DDMMYY): ");
-                scanf("%s", ds[vt].ngayNhan);
-                xoaBoNhoDem();
-                if (kiemTraNgayNhan(ds[vt].ngayNhan) == 0) {
-                    printf("-> Ngay nhan khong hop le! Nhap lai.\n");
-                }
-            } while (kiemTraNgayNhan(ds[vt].ngayNhan) == 0);
-
-            do {
-                printf("Nhap tinh trang don (1: Chua giao | 2: Dang giao | 3: Da giao): ");
-                scanf("%d", &ds[vt].tinhTrangDon);
-                xoaBoNhoDem();
-                if (kiemTraTinhTrangDon(ds[vt].tinhTrangDon) == 0) {
-                    printf("-> Lua chon khong hop le! Nhap lai.\n");
-                }
-            } while (kiemTraTinhTrangDon(ds[vt].tinhTrangDon) == 0);
-
-            printf("\n[Thanh cong] Da cap nhat thong tin don hang %s!\n", ds[vt].maDon);
-            break;
-        } else if (luaChonHD == 2) {
-            int xacNhan;
-            do {
-                printf("\nBan co chac chan muon xoa don hang nay?\n");
-                printf("1: Xac nhan xoa\n");
-                printf("0: Tro lai menu chinh sua hoac xoa\n");
-                printf("Nhap lua chon: ");
-                if (scanf("%d", &xacNhan) != 1) {
-                    printf("\nCu phap khong hop le!\n");
-                    xoaBoNhoDem();
-                    xacNhan = -1;
-                    continue;
-                }
-                xoaBoNhoDem();
-
-                if (xacNhan == 1) {
-                    for (int i = vt; i < *soLuong - 1; i++) {
-                        ds[i] = ds[i + 1];
-                    }
-                    (*soLuong)--;
-                    printf("\n[Thanh cong] Da xoa don hang khoi he thong!\n");
-                    break;
-                } else if (xacNhan == 0) {
-                    break;
-                } else {
-                    printf("\nLua chon khong hop le!\n");
-                }
-            } while (xacNhan != 0 && xacNhan != 1);
-
-            if (xacNhan == 1) {
+                } while (kiemTraNguoiGui(ds[vt].nguoiGui) == 0);
+                printf("\n[Thanh cong] Da cap nhat ten nguoi gui!\n");
                 break;
-            }
-        } else if (luaChonHD == 0) {
-            break;
-        } else {
-            printf("\nLua chon khong hop le!\n");
+
+            case 2:
+                {
+                    int trungMa;
+                    do {
+                        trungMa = 0;
+                        printf("Nhap ma don moi: ");
+                        scanf("%s", ds[vt].maDon);
+                        xoaBoNhoDem();
+
+                        if (kiemTraMD(ds[vt].maDon) == 0) {
+                            printf("-> Ma don khong hop le\n");
+                        } else {
+                            int tonTai = 0;
+                            for (int i = 0; i < soLuong; i++) {
+                                if (i != vt && strcmp(ds[i].maDon, ds[vt].maDon) == 0) {
+                                    tonTai = 1;
+                                    break;
+                                }
+                            }
+                            if (tonTai) {
+                                printf("-> Ma don nay da ton tai\n");
+                                trungMa = 1;
+                            }
+                        }
+                    } while (kiemTraMD(ds[vt].maDon) == 0 || trungMa == 1);
+                }
+                printf("\n[Thanh cong] Da cap nhat ma don!\n");
+                break;
+
+            case 3:
+                do {
+                    printf("Nhap ten don hang moi: ");
+                    fgets(ds[vt].donHang, sizeof(ds[vt].donHang), stdin);
+                    ds[vt].donHang[strcspn(ds[vt].donHang, "\n")] = 0;
+                    if (kiemTraDonHang(ds[vt].donHang) == 0) {
+                        printf("-> Cu phap khong hop le\n");
+                    }
+                } while (kiemTraDonHang(ds[vt].donHang) == 0);
+                printf("\n[Thanh cong] Da cap nhat ten don hang!\n");
+                break;
+
+            case 4:
+                {
+                    int loaiHang;
+                    do {
+                        printf("Chon loai hang hoa moi (1: Tai lieu | 2: Hang hoa binh thuong): ");
+                        scanf("%d", &loaiHang);
+                        xoaBoNhoDem();
+                        if (loaiHang != 1 && loaiHang != 2) {
+                            printf("-> Lua chon khong hop le! Vui long chon 1 hoac 2.\n");
+                        }
+                    } while (loaiHang != 1 && loaiHang != 2);
+
+                    ds[vt].loai = loaiHang;
+
+                    if (loaiHang == 1) {
+                        ds[vt].khoiLuong = 0;
+                        ds[vt].soTien = 25000;
+                    } else {
+                        do {
+                            printf("Nhap khoi luong moi (kg): ");
+                            scanf("%f", &ds[vt].khoiLuong);
+                            xoaBoNhoDem();
+                            if (ds[vt].khoiLuong <= 0) {
+                                printf("Gia tri khong hop le!\n");
+                            }
+                        } while (ds[vt].khoiLuong <= 0);
+
+                        if (ds[vt].khoiLuong < 10) {
+                            ds[vt].soTien = ds[vt].khoiLuong * 3000;
+                        } else {
+                            ds[vt].soTien = ds[vt].khoiLuong * 4000;
+                        }
+                    }
+                }
+                printf("\n[Thanh cong] Da cap nhat loai va khoi luong!\n");
+                break;
+
+            case 5:
+                do {
+                    printf("Nhap ngay gui moi (DDMMYY): ");
+                    scanf("%s", ds[vt].ngayGui);
+                    xoaBoNhoDem();
+                    if (kiemTraNgayGui(ds[vt].ngayGui) == 0) {
+                        printf("-> Ngay gui khong hop le\n");
+                    }
+                } while (kiemTraNgayGui(ds[vt].ngayGui) == 0);
+                printf("\n[Thanh cong] Da cap nhat ngay gui!\n");
+                break;
+
+            case 6:
+                do {
+                    printf("Nhap ten nguoi nhan moi: ");
+                    fgets(ds[vt].nguoiNhan, sizeof(ds[vt].nguoiNhan), stdin);
+                    ds[vt].nguoiNhan[strcspn(ds[vt].nguoiNhan, "\n")] = 0;
+                    if (kiemTraNguoiNhan(ds[vt].nguoiNhan) == 0) {
+                        printf("-> Ten nguoi nhan khong duoc de trong! Nhap lai.\n");
+                    }
+                } while (kiemTraNguoiNhan(ds[vt].nguoiNhan) == 0);
+                printf("\n[Thanh cong] Da cap nhat ten nguoi nhan!\n");
+                break;
+
+            case 7:
+                do {
+                    printf("Nhap SDT nguoi nhan moi: ");
+                    scanf("%s", ds[vt].SDT);
+                    xoaBoNhoDem();
+                    if (kiemTraSDT(ds[vt].SDT) == 0) {
+                        printf("-> SDT khong hop le! Nhap lai.\n");
+                    }
+                } while (kiemTraSDT(ds[vt].SDT) == 0);
+                printf("\n[Thanh cong] Da cap nhat SDT nguoi nhan!\n");
+                break;
+
+            case 8:
+                do {
+                    printf("Nhap ngay nhan du kien moi (DDMMYY): ");
+                    scanf("%s", ds[vt].ngayNhan);
+                    xoaBoNhoDem();
+                    if (kiemTraNgayNhan(ds[vt].ngayNhan) == 0) {
+                        printf("-> Ngay nhan khong hop le! Nhap lai.\n");
+                    }
+                } while (kiemTraNgayNhan(ds[vt].ngayNhan) == 0);
+                printf("\n[Thanh cong] Da cap nhat ngay nhan!\n");
+                break;
+
+            case 9:
+                do {
+                    printf("Nhap tinh trang don moi (1: Chua giao | 2: Dang giao | 3: Da giao): ");
+                    scanf("%d", &ds[vt].tinhTrangDon);
+                    xoaBoNhoDem();
+                    if (kiemTraTinhTrangDon(ds[vt].tinhTrangDon) == 0) {
+                        printf("-> Lua chon khong hop le! Nhap lai.\n");
+                    }
+                } while (kiemTraTinhTrangDon(ds[vt].tinhTrangDon) == 0);
+                printf("\n[Thanh cong] Da cap nhat tinh trang don!\n");
+                break;
+
+            case 0:
+                printf("\nThoat che độ chinh sua don hang.\n");
+                break;
+
+            default:
+                printf("\nLua chon khong hop le!\n");
         }
-    } while (1);
+    } while (chonMuc != 0);
 }
