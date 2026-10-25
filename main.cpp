@@ -4,11 +4,14 @@
 #define MAX_DON_HANG 100
 
 void hienThiMenu() {
-    printf("\n================ QUAN LY VAN CHUYEN BUU KIEN ==============\n");
+    printf("\n");
+    printf("================ QUAN LY VAN CHUYEN BUU KIEN ==============\n");
     printf("| 1. Them moi don hang (Create)                           |\n");
     printf("| 2. Hien thi danh sach don hang (Read)                   |\n");
+    printf("| 3. Tim kiem don hang (Search)                           |\n");
+    printf("| 4. Chinh sua hoac xoa don hang (Edit)                   |\n");
     printf("| 0. Thoat chuong trinh                                   |\n");
-    printf("============================================================\n");
+    printf("===========================================================\n");
     printf("Nhap lua chon cua ban: ");
 }
 
@@ -35,6 +38,12 @@ int main() {
                 break;
             case 2:
                 hienThiDanhSach(danhSachDonHang, soLuongDonHang);
+                break;
+            case 3:
+                timKiemDonHang(danhSachDonHang, soLuongDonHang);
+                break;
+            case 4:
+                suaHoacXoaDonHang(danhSachDonHang, &soLuongDonHang);
                 break;
             case 0:
                 printf("\nKet thuc chuong trinh\n");

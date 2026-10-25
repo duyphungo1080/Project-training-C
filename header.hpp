@@ -29,5 +29,7 @@ void xoaBoNhoDem();
 int timViTriTheoMa(vanChuyen ds[], int soLuong, char maDon[]);
 void themDonHang(vanChuyen ds[], int *soLuong);
 void hienThiDanhSach(vanChuyen ds[], int soLuong);
+void timKiemDonHang(vanChuyen ds[], int soLuong);
+void suaHoacXoaDonHang(vanChuyen ds[], int *soLuong);
 
 #endif
