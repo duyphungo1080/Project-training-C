@@ -10,6 +10,9 @@ void hienThiMenu() {
     printf("| 2. Hien thi danh sach don hang (Read)                   |\n");
     printf("| 3. Tim kiem don hang (Search)                           |\n");
     printf("| 4. Chinh sua don hang (Edit)                            |\n");
+    printf("| 5. Xoa don hang (Delete)                                |\n");
+    printf("| 6. Tra cuu phi van chuyen (Shipping Fee)                |\n");
+    printf("| 7. Xem tinh trang don hang (Status)                     |\n");
     printf("| 0. Thoat chuong trinh                                   |\n");
     printf("===========================================================\n");
     printf("Nhap lua chon cua ban: ");
@@ -44,6 +47,15 @@ int main() {
                 break;
             case 4:
                 suaDonHang(danhSachDonHang, soLuongDonHang);
+                break;
+            case 5:
+                xoaDonHang(danhSachDonHang, &soLuongDonHang);
+                break;
+            case 6:
+                traCuuPhiVanChuyen(danhSachDonHang, soLuongDonHang);
+                break;
+            case 7:
+                xemTinhTrangDonHang(danhSachDonHang, soLuongDonHang);
                 break;
             case 0:
                 printf("\nKet thuc chuong trinh\n");
