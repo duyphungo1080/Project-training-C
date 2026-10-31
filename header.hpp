@@ -22,6 +22,7 @@ int kiemTraNguoiNhan(char nguoiNhan[]);
 int kiemTraMD(char maDon[]);
 int kiemTraNgayGui(char ngayGui[]);
 int kiemTraNgayNhan(char ngayNhan[]);
+int kiemTraNgayNhanSauNgayGui(char ngayGui[], char ngayNhan[]);
 int kiemTraSDT(char SDT[]);
 int kiemTraTinhTrangDon(int trangThai);
 
@@ -34,4 +35,6 @@ void suaDonHang(vanChuyen ds[], int soLuong);
 void xoaDonHang(vanChuyen ds[], int *soLuong);
 void traCuuPhiVanChuyen(vanChuyen ds[], int soLuong);
 void xemTinhTrangDonHang(vanChuyen ds[], int soLuong);
+void nhapDiaChi(char diaChi[], int kichThuoc);
+void hienThiDiaChi(const char diaChi[]);
 #endif
