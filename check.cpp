@@ -92,6 +92,15 @@ int kiemTraNgayNhan(char ngayNhan[]) {
     return 1;
 }
 
+int kiemTraNgayNhanSauNgayGui(char ngayGui[], char ngayNhan[]) {
+    if (!kiemTraNgayGui(ngayGui) || !kiemTraNgayNhan(ngayNhan)) {
+        return 0;
+    }
+    int ngayGuiSo = ((ngayGui[4] - '0') * 10 + (ngayGui[5] - '0')) * 10000 + ((ngayGui[2] - '0') * 10 + (ngayGui[3] - '0')) * 100 + ((ngayGui[0] - '0') * 10 + (ngayGui[1] - '0'));
+    int ngayNhanSo = ((ngayNhan[4] - '0') * 10 + (ngayNhan[5] - '0')) * 10000 + ((ngayNhan[2] - '0') * 10 + (ngayNhan[3] - '0')) * 100 + ((ngayNhan[0] - '0') * 10 + (ngayNhan[1] - '0'));
+    return ngayNhanSo > ngayGuiSo;
+}
+
 int kiemTraSDT(char SDT[]) {
     if (strlen(SDT) != 10) return 0;
     if (SDT[0] != '0') return 0;
