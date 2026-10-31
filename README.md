@@ -20,7 +20,7 @@ Chương trình cung cấp menu tương tác console đầy đủ các chức n�
 
 * ➕ **Thêm đơn hàng:** Nhập và lưu trữ thông tin kiện hàng mới vào danh sách `struct`.
 * 📋 **Hiển thị danh sách:** Xuất bảng danh sách toàn bộ các đơn hàng hiện có dưới dạng lưới trên console.
-* 🔍 **Tìm kiếm đơn hàng:** Tra cứu nhanh đơn hàng theo mã đơn hoặc tên người nhận.
+* 🔍 **Tìm kiếm đơn hàng:** Tra cứu nhanh đơn hàng theo mã đơn hoặc số điện thoại.
 * ✏️ **Sửa thông tin:** Cập nhật lại chi tiết bưu kiện khi có thay đổi.
 * 🗑️ **Xóa đơn hàng:** Loại bỏ các đơn hàng đã hủy hoặc nhập sai khỏi hệ thống.
 * 💰 **Tính phí vận chuyển:** Tự động tính toán số tiền cước dựa trên trọng lượng/kích thước kiện hàng.
