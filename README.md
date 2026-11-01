@@ -103,4 +103,4 @@ Máy tính của bạn cần sẵn sàng trình biên dịch C (như GCC) hoặc
 
 * Màn hình 'Status'
 
-![Image](images/.png)
+![Image](images/8.png)
