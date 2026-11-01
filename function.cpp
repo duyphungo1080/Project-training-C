@@ -177,8 +177,8 @@ void hienThiDanhSach(vanChuyen ds[], int soLuong) {
     }
 
     printf("\n================================================================== DANH SACH DON HANG ==================================================================\n");
-    printf("%-4s | %-8s | %-18s | %-18s | %-12s | %-10s | %-10s | %-10s | %-12s | %-12s\n", 
-           "STT", "Ma don", "Nguoi gui", "Ten hang", "Loai", "Khoi luong", "Ngay gui", "SDT nhan", "So tien", "Tinh trang");
+    printf("%-4s | %-8s | %-18s | %-18s | %-12s | %-10s | %-10s | %-10s | %-12s | %-12s | %-30s\n", 
+           "STT", "Ma don", "Nguoi gui", "Ten hang", "Loai", "Khoi luong", "Ngay gui", "SDT nhan", "So tien", "Tinh trang", "Dia chi giao");
     printf("--------------------------------------------------------------------------------------------------------------------------------------------------------\n");
 
     for (int i = 0; i < soLuong; i++) {
@@ -199,7 +199,7 @@ void hienThiDanhSach(vanChuyen ds[], int soLuong) {
         }
 
         if (ds[i].loai == 1) {
-            printf("%-4d | %-8s | %-18s | %-18s | %-12s | %-10s | %-10s | %-10s | %-12.0f | %-12s\n",
+            printf("%-4d | %-8s | %-18s | %-18s | %-12s | %-10s | %-10s | %-10s | %-12.0f | %-12s | %-30s\n",
                    i + 1, 
                    ds[i].maDon, 
                    ds[i].nguoiGui, 
@@ -209,9 +209,10 @@ void hienThiDanhSach(vanChuyen ds[], int soLuong) {
                    ds[i].ngayGui, 
                    ds[i].SDT, 
                    ds[i].soTien, 
-                   tt);
+                   tt,
+                   ds[i].diaChi);
         } else {
-            printf("%-4d | %-8s | %-18s | %-18s | %-12s | %-10.2f | %-10s | %-10s | %-12.0f | %-12s\n",
+            printf("%-4d | %-8s | %-18s | %-18s | %-12s | %-10.2f | %-10s | %-10s | %-12.0f | %-12s | %-30s\n",
                    i + 1, 
                    ds[i].maDon, 
                    ds[i].nguoiGui, 
@@ -221,13 +222,9 @@ void hienThiDanhSach(vanChuyen ds[], int soLuong) {
                    ds[i].ngayGui, 
                    ds[i].SDT, 
                    ds[i].soTien, 
-                   tt);
+                   tt,
+                   ds[i].diaChi);
         }
-
-        printf("Dia chi giao: ");
-        hienThiDiaChi(ds[i].diaChi);
-        printf("\n");
-            
     }
     printf("========================================================================================================================================================\n");
 }
@@ -258,8 +255,8 @@ void timKiemDonHang(vanChuyen ds[], int soLuong) {
     }
 
     printf("\n================================================================== KET QUA TIM KIEM ==================================================================\n");
-    printf("%-4s | %-8s | %-18s | %-18s | %-12s | %-10s | %-10s | %-10s | %-12s | %-12s\n", 
-           "STT", "Ma don", "Nguoi gui", "Ten hang", "Loai", "Khoi luong", "Ngay gui", "SDT nhan", "So tien", "Tinh trang");
+    printf("%-4s | %-8s | %-18s | %-18s | %-12s | %-10s | %-10s | %-10s | %-12s | %-12s | %-30s\n", 
+           "STT", "Ma don", "Nguoi gui", "Ten hang", "Loai", "Khoi luong", "Ngay gui", "SDT nhan", "So tien", "Tinh trang", "Dia chi giao");
     printf("--------------------------------------------------------------------------------------------------------------------------------------------------------\n");
 
     for (int i = 0; i < soLuong; i++) {
@@ -291,7 +288,8 @@ void timKiemDonHang(vanChuyen ds[], int soLuong) {
                        ds[i].ngayGui, 
                        ds[i].SDT, 
                        ds[i].soTien, 
-                       tt);
+                       tt,
+                       ds[i].diaChi);
             } else {
                 printf("%-4d | %-8s | %-18s | %-18s | %-12s | %-10.2f | %-10s | %-10s | %-12.0f | %-12s\n",
                        i + 1, 
@@ -303,11 +301,9 @@ void timKiemDonHang(vanChuyen ds[], int soLuong) {
                        ds[i].ngayGui, 
                        ds[i].SDT, 
                        ds[i].soTien, 
-                       tt);
+                       tt,
+                       ds[i].diachi);
             }
-            printf("Dia chi giao: ");
-            hienThiDiaChi(ds[i].diaChi);
-            printf("\n");
         }
     }
     printf("========================================================================================================================================================\n");
