@@ -278,7 +278,7 @@ void timKiemDonHang(vanChuyen ds[], int soLuong) {
             }
 
             if (ds[i].loai == 1) {
-                printf("%-4d | %-8s | %-18s | %-18s | %-12s | %-10s | %-10s | %-10s | %-12.0f | %-12s\n",
+                printf("%-4d | %-8s | %-18s | %-18s | %-12s | %-10s | %-10s | %-10s | %-12.0f | %-12s | %-30s\n",
                        i + 1, 
                        ds[i].maDon, 
                        ds[i].nguoiGui, 
@@ -291,7 +291,7 @@ void timKiemDonHang(vanChuyen ds[], int soLuong) {
                        tt,
                        ds[i].diaChi);
             } else {
-                printf("%-4d | %-8s | %-18s | %-18s | %-12s | %-10.2f | %-10s | %-10s | %-12.0f | %-12s\n",
+                printf("%-4d | %-8s | %-18s | %-18s | %-12s | %-10.2f | %-10s | %-10s | %-12.0f | %-12s | %-30s\n",
                        i + 1, 
                        ds[i].maDon, 
                        ds[i].nguoiGui, 
@@ -302,7 +302,7 @@ void timKiemDonHang(vanChuyen ds[], int soLuong) {
                        ds[i].SDT, 
                        ds[i].soTien, 
                        tt,
-                       ds[i].diachi);
+                       ds[i].diaChi);
             }
         }
     }
