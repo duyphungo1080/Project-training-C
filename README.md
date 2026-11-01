@@ -50,7 +50,7 @@ Máy tính của bạn cần sẵn sàng trình biên dịch C (như GCC) hoặc
 
 2. **Biên dịch mã nguồn C:**
    ```bash
-   g++ check.cpp function.cpp main.cpp -o main
+   g++ check.cpp function.cpp function1.cpp function2.cpp main.cpp -o main
    ```
 
 3. **Khởi chạy ứng dụng Console:**
