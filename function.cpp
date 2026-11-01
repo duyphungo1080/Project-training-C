@@ -133,6 +133,8 @@ void themDonHang(vanChuyen ds[], int *soLuong) {
         }
     } while (kiemTraSDT(vcMoi.SDT) == 0);
 
+    nhapDiaChi(vcMoi.diaChi, sizeof(vcMoi.diaChi));
+    
     do {
         printf("Nhap ngay nhan du kien (DDMMYY): ");
         scanf("%s", vcMoi.ngayNhan);
@@ -142,7 +144,12 @@ void themDonHang(vanChuyen ds[], int *soLuong) {
         if (kiemTraNgayNhan(vcMoi.ngayNhan) == 0) {
             printf("-> Ngay nhan khong hop le! Nhap lai.\n");
         }
-    } while (kiemTraNgayNhan(vcMoi.ngayNhan) == 0);
+            
+        else if (kiemTraNgayNhanSauNgayGui(vcMoi.ngayGui, vcMoi.ngayNhan) == 0){
+            printf("-> Ngay nhan phai sau ngay gui! Nhap lai.\n");
+        }
+        
+    } while (kiemTraNgayNhan(vcMoi.ngayNhan) == 0 || kiemTraNgayNhanSauNgayGui(vcMoi.ngayGui, vcMoi.ngayNhan) == 0);
 
     do {
         printf("Nhap tinh trang don (1: Chua giao | 2: Dang giao | 3: Da giao): ");
@@ -216,6 +223,11 @@ void hienThiDanhSach(vanChuyen ds[], int soLuong) {
                    ds[i].soTien, 
                    tt);
         }
+
+        printf("Dia chi giao: ");
+        hienThiDiaChi(ds[i].diaChi);
+        printf("\n")
+            
     }
     printf("========================================================================================================================================================\n");
 }
@@ -293,6 +305,9 @@ void timKiemDonHang(vanChuyen ds[], int soLuong) {
                        ds[i].soTien, 
                        tt);
             }
+            printf("Dia chi giao: ");
+            hienThiDiaChi(ds[i].diaChi);
+            printf("\n");
         }
     }
     printf("========================================================================================================================================================\n");
@@ -331,6 +346,7 @@ void suaDonHang(vanChuyen ds[], int soLuong) {
         printf("7. SDT nguoi nhan\n");
         printf("8. Ngay nhan du kien\n");
         printf("9. Tinh trang don\n");
+        printf("10. Dia chi giao hang\n");
         printf("0. Thoat chinh sua\n");
         printf("Nhap lua chon: ");
 
@@ -441,6 +457,9 @@ void suaDonHang(vanChuyen ds[], int soLuong) {
                     if (kiemTraNgayGui(ds[vt].ngayGui) == 0) {
                         printf("-> Ngay gui khong hop le\n");
                     }
+                    else if (kiemTraNgayNhanSauNgayGui(ds[vt].ngayGui, ds[vt].ngayNhan) == 0){
+                        printf("-> Ngay gui khong hop le\n");
+                    }
                 } while (kiemTraNgayGui(ds[vt].ngayGui) == 0);
                 printf("\n[Thanh cong] Da cap nhat ngay gui!\n");
                 break;
@@ -477,6 +496,9 @@ void suaDonHang(vanChuyen ds[], int soLuong) {
                     if (kiemTraNgayNhan(ds[vt].ngayNhan) == 0) {
                         printf("-> Ngay nhan khong hop le! Nhap lai.\n");
                     }
+                    else if (kiemTraNgayNhanSauNgayGui(ds[vt].ngayGui, ds[vt].ngayNhan) == 0){
+                        printf("-> Ngay nhan khong hop le! Nhap lai.\n");
+                    }
                 } while (kiemTraNgayNhan(ds[vt].ngayNhan) == 0);
                 printf("\n[Thanh cong] Da cap nhat ngay nhan!\n");
                 break;
@@ -492,6 +514,11 @@ void suaDonHang(vanChuyen ds[], int soLuong) {
                 } while (kiemTraTinhTrangDon(ds[vt].tinhTrangDon) == 0);
                 printf("\n[Thanh cong] Da cap nhat tinh trang don!\n");
                 break;
+
+            case 10:
+                nhapDiaChi(ds[vt].diaChi, sizeof(ds[vt].diaChi));
+                printf("\n[Thanh cong] Da cap nhat dia chi giao hang!\n");
+            break;
 
             case 0:
                 printf("\nThoat che độ chinh sua don hang.\n");
