@@ -226,7 +226,7 @@ void hienThiDanhSach(vanChuyen ds[], int soLuong) {
 
         printf("Dia chi giao: ");
         hienThiDiaChi(ds[i].diaChi);
-        printf("\n")
+        printf("\n");
             
     }
     printf("========================================================================================================================================================\n");
@@ -460,7 +460,7 @@ void suaDonHang(vanChuyen ds[], int soLuong) {
                     else if (kiemTraNgayNhanSauNgayGui(ds[vt].ngayGui, ds[vt].ngayNhan) == 0){
                         printf("-> Ngay gui khong hop le\n");
                     }
-                } while (kiemTraNgayGui(ds[vt].ngayGui) == 0);
+                } while (kiemTraNgayGui(ds[vt].ngayGui) == 0 || kiemTraNgayNhanSauNgayGui(ds[vt].ngayGui, ds[vt].ngayNhan) == 0);
                 printf("\n[Thanh cong] Da cap nhat ngay gui!\n");
                 break;
 
@@ -499,7 +499,7 @@ void suaDonHang(vanChuyen ds[], int soLuong) {
                     else if (kiemTraNgayNhanSauNgayGui(ds[vt].ngayGui, ds[vt].ngayNhan) == 0){
                         printf("-> Ngay nhan khong hop le! Nhap lai.\n");
                     }
-                } while (kiemTraNgayNhan(ds[vt].ngayNhan) == 0);
+                } while (kiemTraNgayNhan(ds[vt].ngayNhan) == 0 || kiemTraNgayNhanSauNgayGui(ds[vt].ngayGui, ds[vt].ngayNhan) == 0);
                 printf("\n[Thanh cong] Da cap nhat ngay nhan!\n");
                 break;
 
