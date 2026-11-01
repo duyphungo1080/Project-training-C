@@ -80,3 +80,27 @@ Máy tính của bạn cần sẵn sàng trình biên dịch C (như GCC) hoặc
 * Màn hình `Create`
 
 ![Image](images/2.png)
+
+* Màn hình 'Read'
+
+![Image](images/3.png)
+
+* Màn hình 'Search'
+
+![Image](images/4.png)
+
+* Màn hình 'Edit'
+
+![Image](images/5.png)
+
+* Màn hình 'Delete'
+
+![Image](images/6.png)
+
+* Màn hình 'Shipping Fee'
+
+![Image](images/7.png)
+
+* Màn hình 'Status'
+
+![Image](images/.png)
