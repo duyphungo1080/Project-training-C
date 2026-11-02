@@ -28,7 +28,7 @@ Chương trình cung cấp menu tương tác console đầy đủ các chức n�
 
 ---
 
-## 🛠️ Công Nghệ & Trình Biên Dịch
+## Công Nghệ & Trình Biên Dịch
 
 * **Ngôn ngữ:** C (Standard C)
 * **Khái niệm cốt lõi:** `struct`, Mảng/Danh sách liên kết, Con trỏ (Pointers), Hàm (Functions).
@@ -36,7 +36,7 @@ Chương trình cung cấp menu tương tác console đầy đủ các chức n�
 
 ---
 
-## 🚀 Hướng Dẫn Biên Dịch & Chạy Chương Trình
+## Hướng Dẫn Biên Dịch & Chạy Chương Trình
 
 ### 1. Tiền đề
 Máy tính của bạn cần sẵn sàng trình biên dịch C (như GCC) hoặc một IDE lập trình C bất kỳ.
