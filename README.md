@@ -1,4 +1,4 @@
-# Quản Lý Thông Tin Kiện Hàng 📦
+# Quản Lý Thông Tin Kiện Hàng 
 
 > **Dự án cuối khóa:** Chương trình Đào tạo Ngôn ngữ Lập trình C  
 > **Giao diện:** Console Application (Dòng lệnh)
@@ -7,24 +7,24 @@ Dự án được thực hiện nhằm mô phỏng giải pháp quản lý, lưu
 
 ---
 
-## 💡 Điểm Nổi Bật Kỹ Thuật
+## Điểm Nổi Bật Kỹ Thuật
 
 * **Sử dụng cấu trúc dữ liệu `struct`:** Toàn bộ thông tin đơn hàng (mã đơn, tên người nhận, trọng lượng, địa chỉ, trạng thái, phí vận chuyển,...) được đóng gói và quản lý bằng `struct` trong C.
 * **Tương tác Console:** Giao diện điều khiển dạng menu lựa chọn trên màn hình đen (Console UI), trực quan và dễ sử dụng.
 
 ---
 
-## 🌟 Tính Năng Chính
+## Tính Năng Chính
 
 Chương trình cung cấp menu tương tác console đầy đủ các chức năng quản lý:
 
-* ➕ **Thêm đơn hàng:** Nhập và lưu trữ thông tin kiện hàng mới vào danh sách `struct`.
-* 📋 **Hiển thị danh sách:** Xuất bảng danh sách toàn bộ các đơn hàng hiện có dưới dạng lưới trên console.
-* 🔍 **Tìm kiếm đơn hàng:** Tra cứu nhanh đơn hàng theo mã đơn hoặc số điện thoại.
-* ✏️ **Sửa thông tin:** Cập nhật lại chi tiết bưu kiện khi có thay đổi.
-* 🗑️ **Xóa đơn hàng:** Loại bỏ các đơn hàng đã hủy hoặc nhập sai khỏi hệ thống.
-* 💰 **Tính phí vận chuyển:** Tự động tính toán số tiền cước dựa trên trọng lượng/kích thước kiện hàng.
-* 🏷️ **Lọc đơn hàng:** Phân loại và hiển thị riêng danh sách đơn **Đã giao** và **Chưa giao**.
+*  **Thêm đơn hàng:** Nhập và lưu trữ thông tin kiện hàng mới vào danh sách `struct`.
+*  **Hiển thị danh sách:** Xuất bảng danh sách toàn bộ các đơn hàng hiện có dưới dạng lưới trên console.
+*  **Tìm kiếm đơn hàng:** Tra cứu nhanh đơn hàng theo mã đơn hoặc số điện thoại.
+*  **Sửa thông tin:** Cập nhật lại chi tiết bưu kiện khi có thay đổi.
+*  **Xóa đơn hàng:** Loại bỏ các đơn hàng đã hủy hoặc nhập sai khỏi hệ thống.
+*  **Tính phí vận chuyển:** Tự động tính toán số tiền cước dựa trên trọng lượng/kích thước kiện hàng.
+*  **Lọc đơn hàng:** Phân loại và hiển thị riêng danh sách đơn **Đã giao** và **Chưa giao**.
 
 ---
 
